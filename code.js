@@ -1,24 +1,6 @@
-// function getLine(lineDiv) {
-//     spans = lineDiv.children
-//     characters = Array.from(spans).map(span => span.textContent)
-//     line = characters.join("")
-//     return line
-// }
-
-
-// function getLines(textFieldElement) {
-//     lines = Array.from(textFieldElement.children).map(div => getLine(div))
-//     return lines
-// }
-
-
-// function getText(textFieldElement) {
-//     lines = getLines(textFieldElement)
-//     text = lines.join("\n")
-//     return text
-// }
-
-
+//
+// Text field
+//
 function getTextFieldElement() {
     textFieldElement =  document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--main.container__item--editor > div.Editor_editor__32JYa > div.cm-theme > div > div.cm-scroller > div.cm-content.cm-lineWrapping')
     return textFieldElement
@@ -30,41 +12,54 @@ function setTextFieldElement(textFieldElement, textFieldElementHTML) {
 }
 
 
-function getSliderWidth(sliderElement) {
-    return sliderElement.style.width
-}
-
-
-function setSliderWidth(sliderElement, newWidth) {
-    // newWidth = '25%'
-
-    sliderElement.style.width = newWidth
-}
-
-
+//
+// Slider
+//
 function getSliderElement() {
     sliderElement = document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--scrollable.container__item--output > div.item__content > div.Preview_preview__pMaO6 > div > div:nth-child(1)')
     return sliderElement
 }
 
 
-function getSliderLabelLeft(sliderLabelElement) {
-    return sliderLabelElement.style.left
+function getSliderWidth() {
+    sliderElement = getSliderElement()
+    return sliderElement.style.width
 }
 
 
-function setSliderLabelLeft(sliderLabelElement, newLeft) {
-    // newLeft = 295
+function setSliderWidth(newWidth) {
+    // newWidth = '25%'
 
-    sliderLabelElement.style.left = `${newLeft}px`
-    sliderLabelElement.textContent = newLeft
+    sliderElement = getSliderElement()
+    sliderElement.style.width = newWidth
 }
 
 
+//
+// Slider label
+//
 function getSliderLabelElement() {
     sliderLabelElement = document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--scrollable.container__item--output > div.item__content > div.Preview_preview__pMaO6 > div > div.Preview_previewDistance__bcOmJ')
     return sliderLabelElement
 }
+
+
+function getSliderLabelNumber() {
+    sliderLabelElement = getSliderLabelElement()
+    sliderLabelNumber = sliderLabelElement.style.left
+    return sliderLabelNumber
+}
+
+
+function setSliderLabelNumber(newNumber) {
+    // newNumber = 295
+
+    sliderLabelElement = getSliderLabelElement()
+    sliderLabelElement.style.left = `${newNumber}px`
+    sliderLabelElement.textContent = newNumber
+}
+
+
 
 
 // Websockets
@@ -86,16 +81,21 @@ function initializeWebSocketConnection() {
 }
 
 
-function handleMouseMove(event) {
-    textFieldElement = getTextFieldElement()
-    sliderElement = getSliderElement()
-    sliderLabelElement = getSliderLabelElement()
+function getSlider() {
+    sliderWidth = getSliderWidth()
+    sliderLabelNumber = getSliderLabelNumber()
+    return {
+        'width': sliderWidth,
+        'labelNumber': sliderLabelNumber
+    }
+}
 
-    socket.send(textFieldElement.outerHTML);
-    socket.send(sliderElement.outerHTML);
-    socket.send(sliderLabelElement.outerHTML);
 
-    console.log('mousemove!')
+function setSlider(sliderInfo) {
+    // sliderInfo = {width: '69%', labelNumber: '276px'}
+    
+    setSliderWidth(sliderInfo.width)
+    setSliderLabelNumber(sliderInfo.labelNumber)
 }
 
 
