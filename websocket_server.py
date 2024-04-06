@@ -12,7 +12,7 @@ def handle_message(data):
     print('Received message: ' + data)
 
     # Send a message back
-    emit('server_response', 'Message received!', broadcast=True)
+    emit('server_response', data, broadcast=True)
 
 
 if __name__ == '__main__':
