@@ -25,8 +25,8 @@ function getTextFieldElement() {
 }
 
 
-function setText(getTextFieldElement, textFieldElementText) {
-    getTextFieldElement.outerHTML = textFieldElementText
+function setTextFieldElement(textFieldElement, textFieldElementHTML) {
+    textFieldElement.outerHTML = textFieldElementHTML
 }
 
 
@@ -97,4 +97,11 @@ function handleMouseMove(event) {
 
     console.log('mousemove!')
 }
+
+
+//
+// Main
+//
+
+initializeWebSocketConnection()
 

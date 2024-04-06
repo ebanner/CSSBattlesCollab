@@ -1,9 +1,13 @@
-initializeWebSocketConnection()
+var LOCK = false;
+
 
 socket = io('http://127.0.0.1:5000');
 
 socket.on('server_response', function (response) {
     console.log('Received response from server:', response);
+    LOCK = true;
+    console.log('SET LOCK', LOCK)
+    getTextFieldElement().innerHTML = response
 });
 
 // document.addEventListener('mousemove', handleMouseMove);
@@ -16,13 +20,19 @@ socket.on('server_response', function (response) {
 //
 
 var callback = function(mutationsList, observer) {
+    console.log('IN CALLBACK LOCK', LOCK);
+    if (LOCK) {
+        LOCK = false;
+        return;
+    }
+
     for(var mutation of mutationsList) {
         if (mutation.type === 'characterData') {
             console.log('Text content changed:', mutation);
             console.log('Target DOM element:', mutation.target);
             // Your code to handle the text content change here
             var textFieldElement = getTextFieldElement();
-            socket.send(textFieldElement.outerHTML);
+            socket.send(textFieldElement.innerHTML);
         }
     }
 };
