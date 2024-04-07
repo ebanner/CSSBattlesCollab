@@ -11,8 +11,12 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 def handle_message(data):
     print('Received message: ' + data)
 
-    # Send a message back
-    emit('server_response', data, broadcast=True, include_self=False)
+    if 'cm-line' in data:
+        # Text field update
+        emit('text_changed', data, broadcast=True, include_self=False)
+    else:
+        # Slider update
+        emit('slider_changed', data, broadcast=True, include_self=False)
 
 
 if __name__ == '__main__':

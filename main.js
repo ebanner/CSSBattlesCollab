@@ -3,7 +3,7 @@ var LOCK = false;
 
 socket = io('http://127.0.0.1:5000');
 
-socket.on('server_response', function (response) {
+socket.on('text_changed', function (response) {
     console.log('Received response from server:', response);
     LOCK = true;
     console.log('SET LOCK', LOCK)
