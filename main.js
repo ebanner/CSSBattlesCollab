@@ -1,28 +1,22 @@
-var LOCK = false;
-
+var TEXT_FIELD_LOCK = false;
 
 socket = io('http://127.0.0.1:5000');
 
 socket.on('text_changed', function (response) {
     console.log('Received response from server:', response);
-    LOCK = true;
-    console.log('SET LOCK', LOCK)
+    TEXT_FIELD_LOCK = true;
+    console.log('SET TEXT_FIELD_LOCK', TEXT_FIELD_LOCK)
     getTextFieldElement().innerHTML = response
 });
-
-// document.addEventListener('mousemove', handleMouseMove);
-
-// Send a message to the server
-// socket.send('Hello, server!');
 
 //
 // Observe when the text field changes
 //
 
-var callback = function(mutationsList, observer) {
-    console.log('IN CALLBACK LOCK', LOCK);
-    if (LOCK) {
-        LOCK = false;
+var textFieldCallback = function(mutationsList, observer) {
+    console.log('IN CALLBACK TEXT_FIELD_LOCK', TEXT_FIELD_LOCK);
+    if (TEXT_FIELD_LOCK) {
+        TEXT_FIELD_LOCK = false;
         return;
     }
 
@@ -38,9 +32,10 @@ var callback = function(mutationsList, observer) {
 };
 
 //
-// Start observing the target node for configured mutations
+// Attach an event handler to text field to broadcast changes
 //
 var textFieldElement = getTextFieldElement();
 var config = { characterData: true, subtree: true };
-var observer = new MutationObserver(callback); // Create an observer instance linked to the callback function
+var observer = new MutationObserver(textFieldCallback);
 observer.observe(textFieldElement, config);
+
