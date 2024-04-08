@@ -4,6 +4,8 @@ Collaborative CSSBattles
 
 ## How to run
 
+### Server
+
 Start ngrok
 
 ```
@@ -56,6 +58,16 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 
-Paste `code.js` in chrome dev console
+### Clients
 
-Paste `main.js` in chrome dev console
+1. Go to a CSSBattle 
+
+2. Open up chrome dev console
+
+3. Define websockets URL (ngrok URL from above)
+```
+WEBSOCKETS_URL = '0.tcp.ngrok.io:10217'
+```
+4. Paste `code.js`
+
+5. Paste `main.js`
