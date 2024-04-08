@@ -50,7 +50,7 @@ if __name__ == '__main__':
 Start websockets server
 
 ```
-$ python3 websockets_server
+$ python3 websockets_server.py
  * Serving Flask app 'websocket_server'
  * Debug mode: off
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
