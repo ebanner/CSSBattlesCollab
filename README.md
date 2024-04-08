@@ -1,6 +1,6 @@
 # CSSBattlesCollab
 
-Collaborative CSSBattles
+Collaborative CSSBattles ⚔️
 
 ## How to run
 
