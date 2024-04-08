@@ -1,4 +1,5 @@
-socket = io('http://127.0.0.1:5000');
+socket = io(SERVER_URL);
+// socket.send('Hello, server!');
 
 
 //

@@ -20,4 +20,4 @@ def handle_message(data):
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, ssl_context=('0.tcp.ngrok.io.pem', '0.tcp.ngrok.io-key.pem'))
