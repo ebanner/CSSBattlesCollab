@@ -66,7 +66,7 @@ Press CTRL+C to quit
 
 3. Define websockets URL (ngrok URL from above)
 ```
-WEBSOCKETS_URL = '0.tcp.ngrok.io:10217'
+SERVER_URL = '0.tcp.ngrok.io:10217'
 ```
 4. Paste `code.js`
 
