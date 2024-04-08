@@ -44,7 +44,7 @@ Tell flask to use that cert in `websocket_server.py`
 
 ```
 if __name__ == '__main__':
-    socketio.run(app, ssl_context=('6.tcp.ngrok.io.pem', '6.tcp.ngrok.io-key.pem'))
+    socketio.run(app, ssl_context=('2.tcp.ngrok.io.pem', '2.tcp.ngrok.io-key.pem'))
 ```
 
 Start websockets server
