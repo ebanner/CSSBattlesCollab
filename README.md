@@ -56,6 +56,6 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 
-Paste `code.js` in web browser
+Paste `code.js` in chrome dev console
 
-Paste `main.js` in web browser
+Paste `main.js` in chrome dev console
