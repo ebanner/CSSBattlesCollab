@@ -60,6 +60,14 @@ Press CTRL+C to quit
 
 ### Clients
 
+Have clients install `mkcert`
+
+```
+brew install mkcert
+```
+
+Get the [root certificate](https://github.com/FiloSottile/mkcert?tab=readme-ov-file#installing-the-ca-on-other-systems) from the server admin and install it on your machine
+
 1. Go to a CSSBattle 
 
 2. Open up chrome dev console
