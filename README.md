@@ -72,10 +72,4 @@ Get the [root certificate](https://github.com/FiloSottile/mkcert?tab=readme-ov-f
 
 2. Open up chrome dev console
 
-3. Define websockets URL (ngrok URL from above)
-```
-SERVER_URL = '2.tcp.ngrok.io:16103'
-```
-4. Paste `code.js`
-
-5. Paste `main.js`
+3. Paste [this gist](https://gist.github.com/ebanner/0c0cc33c412a342a922e34b10056d5a2) (and fill in `SERVER_URL` before evaluating)
