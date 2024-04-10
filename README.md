@@ -2,6 +2,8 @@
 
 Collaborative CSSBattles ⚔️
 
+Work on a [cssbattle.dev](https://cssbattle.dev) problem together
+
 https://github.com/ebanner/CSSBattlesCollab/assets/2068912/704ed6fd-3103-4207-8daf-ba3bbd837dfc
 
 ## How to run
