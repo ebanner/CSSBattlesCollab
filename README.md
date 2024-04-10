@@ -2,7 +2,7 @@
 
 Collaborative CSSBattles ⚔️
 
-https://github.com/ebanner/CSSBattlesCollab/assets/2068912/47094871-1eea-4b79-9f73-2f67cf04617c
+https://github.com/ebanner/CSSBattlesCollab/assets/2068912/dd503d25-5540-47ad-9834-aab2eafed191
 
 ## How to run
 
