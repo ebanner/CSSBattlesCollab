@@ -1,6 +1,10 @@
 # CSSBattlesCollab
 
-Collaborative CSSBattles
+Collaborative CSSBattles ⚔️
+
+Work on a [cssbattle.dev](https://cssbattle.dev) problem together
+
+https://github.com/ebanner/CSSBattlesCollab/assets/2068912/704ed6fd-3103-4207-8daf-ba3bbd837dfc
 
 ## How to run
 
@@ -44,13 +48,13 @@ Tell flask to use that cert in `websocket_server.py`
 
 ```
 if __name__ == '__main__':
-    socketio.run(app, ssl_context=('6.tcp.ngrok.io.pem', '6.tcp.ngrok.io-key.pem'))
+    socketio.run(app, ssl_context=('2.tcp.ngrok.io.pem', '2.tcp.ngrok.io-key.pem'))
 ```
 
 Start websockets server
 
 ```
-$ python3 websockets_server
+$ python3 websockets_server.py
  * Serving Flask app 'websocket_server'
  * Debug mode: off
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -60,14 +64,16 @@ Press CTRL+C to quit
 
 ### Clients
 
+Have clients install `mkcert`
+
+```
+brew install mkcert
+```
+
+Get the [root certificate](https://github.com/FiloSottile/mkcert?tab=readme-ov-file#installing-the-ca-on-other-systems) from the server admin and install it on your machine
+
 1. Go to a CSSBattle 
 
 2. Open up chrome dev console
 
-3. Define websockets URL (ngrok URL from above)
-```
-SERVER_URL = '0.tcp.ngrok.io:10217'
-```
-4. Paste `code.js`
-
-5. Paste `main.js`
+3. Paste [this gist](https://gist.github.com/ebanner/0c0cc33c412a342a922e34b10056d5a2) (and fill in `SERVER_URL` before evaluating)
