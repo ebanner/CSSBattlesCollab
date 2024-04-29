@@ -80,4 +80,4 @@ Get the [root certificate](https://github.com/FiloSottile/mkcert?tab=readme-ov-f
 
 ## Media
 
-Here is a recent [lightning talk](https://www.youtube.com/watch?v=pzLXQYZpOPU&t=2948s) ⚡️ I gave on CSSBattles
+Here is a recent [lightning talk](https://www.youtube.com/watch?v=pzLXQYZpOPU&t=2948s) ⚡️ I gave on CSSBattlesCollab
