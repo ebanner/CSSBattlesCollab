@@ -19,5 +19,19 @@ def handle_message(data):
         emit('slider_changed', data, broadcast=True, include_self=False)
 
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+
 if __name__ == '__main__':
-    socketio.run(app, ssl_context=('0.tcp.ngrok.io.pem', '0.tcp.ngrok.io-key.pem'))
+    socketio.run(
+        app,
+        host='0.0.0.0',
+        port=443,
+        ssl_context=(
+            '/etc/letsencrypt/live/<MY_URL>/fullchain.pem',
+            '/etc/letsencrypt/live/<MY_URL>/privkey.pem',
+        )
+    )
+    #socketio.run(app, host='0.0.0.0', port=80)
