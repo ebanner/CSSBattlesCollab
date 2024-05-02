@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask
 from flask_socketio import SocketIO, emit
 
@@ -11,10 +13,13 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 def handle_message(data):
     print('Received message: ' + data)
 
-    if 'cm-line' in data:
+    request = json.loads(data)
+
+    if 'text' in request:
         # Text field update
         emit('text_changed', data, broadcast=True, include_self=False)
     else:
+        assert 'width' in request
         # Slider update
         emit('slider_changed', data, broadcast=True, include_self=False)
 
