@@ -1,21 +1,50 @@
 //
-// TEXT FIELD ACCESSORS
+// Text field accessors
 //
 
-function getTextFieldElement() {
-    textFieldElement =  document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--main.container__item--editor > div.Editor_editor__32JYa > div.cm-theme > div > div.cm-scroller > div.cm-content.cm-lineWrapping')
-    return textFieldElement
+function getEditorView() {
+    let cmEditorElement = document.querySelector(".cm-editor") // Or whatever query you need
+    let editorView = cmEditorElement.querySelector(".cm-content").cmView.view
+    return editorView
 }
 
 
-function setTextFieldElement(textFieldElement, textFieldElementHTML) {
-    textFieldElement.outerHTML = textFieldElementHTML
+function getLength() {
+    editorView = getEditorView()
+    length = editorView.viewState.state.doc.length
+    return length
+}
+
+
+function clearTextField() {
+    editorView = getEditorView()
+    editorView.dispatch({
+        changes: {from: 0, to: getLength(editorView), insert: ""}
+    })
+}
+
+
+function setTextField(text) {
+    editorView = getEditorView()
+    clearTextField(editorView)
+
+    editorView.dispatch({
+        changes: {from: 0, insert: text}
+    })
+}
+
+
+function getText() {
+    editorView = getEditorView()
+    text = editorView.viewState.state.doc.toString()
+    return text
 }
 
 
 //
-// Slider
+// Slider accessors
 //
+
 function getSliderElement() {
     sliderElement = document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--scrollable.container__item--output > div.item__content > div.Preview_preview__pMaO6 > div > div:nth-child(1)')
     return sliderElement
@@ -37,8 +66,9 @@ function setSliderWidth(newWidth) {
 
 
 //
-// Slider label
+// Slider label accessors
 //
+
 function getSliderLabelElement() {
     sliderLabelElement = document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--scrollable.container__item--output > div.item__content > div.Preview_preview__pMaO6 > div > div.Preview_previewDistance__bcOmJ')
     return sliderLabelElement
@@ -113,6 +143,10 @@ async function initializeWebSocketConnection(serverURL) {
 }
 
 
+//
+// EVENT LISTENERS
+//
+
 function initializeEventListeners(socket) {
     //
     // TEXT FIELD STUFF
@@ -124,9 +158,11 @@ function initializeEventListeners(socket) {
     console.log(socket)
     socket.on('text_changed', function (response) {
         console.log('Received response from server:', response);
+        responseJson = JSON.parse(response)
+        text = responseJson.text
         TEXT_FIELD_LOCK = true;
         console.log('SET TEXT_FIELD_LOCK', TEXT_FIELD_LOCK)
-        getTextFieldElement().innerHTML = response
+        setTextField(text)
     });
 
 
@@ -143,7 +179,9 @@ function initializeEventListeners(socket) {
                 console.log('Target DOM element:', mutation.target);
                 // Your code to handle the text content change here
                 var textFieldElement = getTextFieldElement();
-                socket.send(textFieldElement.innerHTML);
+                text = getText()
+                request = JSON.stringify({'text': text})
+                socket.send(request);
             }
         }
     };
