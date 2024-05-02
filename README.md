@@ -26,7 +26,7 @@ Press CTRL+C to quit
 
 1. Go to a [cssbattle.dev](https://cssbattle.dev) problem
 
-2. Open up chrome dev console
+2. Open up the Chrome DevTools Console
 
 3. Paste in the secret gist (get it from Eddie)
    
