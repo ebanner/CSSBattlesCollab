@@ -25,3 +25,9 @@ function setTextField(editorView, text) {
     })
 }
 
+
+function getText(editorView) {
+    text = editorView.viewState.state.doc.toString()
+    return text
+}
+
