@@ -147,6 +147,12 @@ async function initializeWebSocketConnection(serverURL) {
 // EVENT LISTENERS
 //
 
+function getTextFieldElement() {
+    textFieldElement =  document.querySelector('#__next > div.page-wrapper > div.content-wrapper > div.page-content.page-content--no-padding > div > div.container.container--fixed-height > div.container__item.container__item--main.container__item--editor > div.Editor_editor__32JYa > div.cm-theme > div > div.cm-scroller > div.cm-content.cm-lineWrapping')
+    return textFieldElement
+}
+
+
 function initializeEventListeners(socket) {
     //
     // TEXT FIELD STUFF
@@ -178,7 +184,6 @@ function initializeEventListeners(socket) {
                 console.log('Text content changed:', mutation);
                 console.log('Target DOM element:', mutation.target);
                 // Your code to handle the text content change here
-                var textFieldElement = getTextFieldElement();
                 text = getText()
                 request = JSON.stringify({'text': text})
                 socket.send(request);
