@@ -24,7 +24,7 @@ Press CTRL+C to quit
 
 ### Clients
 
-1. Go to a cssbattle.dev problem
+1. Go to a [cssbattle.dev](https://cssbattle.dev) problem
 
 2. Open up chrome dev console
 
