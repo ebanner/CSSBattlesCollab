@@ -77,3 +77,7 @@ Get the [root certificate](https://github.com/FiloSottile/mkcert?tab=readme-ov-f
 2. Open up chrome dev console
 
 3. Paste [this gist](https://gist.github.com/ebanner/0c0cc33c412a342a922e34b10056d5a2) (and fill in `SERVER_URL` before evaluating)
+
+## Media
+
+Here is a recent [lightning talk](https://www.youtube.com/watch?v=pzLXQYZpOPU&t=2948s) ⚡️ I gave on CSSBattlesCollab
