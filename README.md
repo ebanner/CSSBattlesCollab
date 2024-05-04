@@ -32,4 +32,4 @@ Press CTRL+C to quit
    
 ## Media
 
-Here is a recent [lightning talk](https://www.youtube.com/watch?v=pzLXQYZpOPU&t=2948s) I gave on CSSBattlesCollab ⚡️
+Here is a [lightning talk](https://www.youtube.com/watch?v=pzLXQYZpOPU&t=2948s) I gave on CSSBattlesCollab ⚡️
