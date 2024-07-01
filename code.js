@@ -37,7 +37,21 @@ function setTextField(text) {
 function getText() {
     editorView = getEditorView()
     text = editorView.viewState.state.doc.toString()
-    return text
+    cursorPos = getCursorPos()
+    return {
+        'text': text,
+        'cursorPos': cursorPos,
+}
+
+
+
+function getCursorPos() {
+    editorView.state.selection.ranges[0].from
+}
+
+
+function setCursorPos(pos) {
+    editorView.dispatch({selection: {anchor: pos, head: pos}})
 }
 
 
@@ -96,7 +110,7 @@ function getSlider() {
     sliderLabelNumber = getSliderLabelNumber()
     return {
         'width': sliderWidth,
-        'labelNumber': sliderLabelNumber
+        'labelNumber': sliderLabelNumber,
     }
 }
 
@@ -166,9 +180,11 @@ function initializeEventListeners(socket) {
         console.log('Received response from server:', response);
         responseJson = JSON.parse(response)
         text = responseJson.text
+        cursorPos = responseJson.cursorPos
         TEXT_FIELD_LOCK = true;
         console.log('SET TEXT_FIELD_LOCK', TEXT_FIELD_LOCK)
         setTextField(text)
+        setCursorPos(cursorPos)
     });
 
 
@@ -185,7 +201,7 @@ function initializeEventListeners(socket) {
                 console.log('Target DOM element:', mutation.target);
                 // Your code to handle the text content change here
                 text = getText()
-                request = JSON.stringify({'text': text})
+                request = JSON.stringify(text)
                 socket.send(request);
             }
         }
@@ -248,7 +264,7 @@ function initializeEventListeners(socket) {
 //
 
 // SERVER_URL = 'https://0.0.0.0:5000'
-SERVER_URL = '<SERVER_URL>'
+SERVER_URL = 'https://collaborative-cssbattle.com'
 socket = await initializeWebSocketConnection(SERVER_URL)
 initializeEventListeners(socket)
 
