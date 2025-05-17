@@ -35,9 +35,6 @@ if __name__ == '__main__':
         host='0.0.0.0',
         port=5001,
         allow_unsafe_werkzeug=True,
-        # ssl_context=(
-        #     '/etc/letsencrypt/live/<MY_URL>/fullchain.pem',
-        #     '/etc/letsencrypt/live/<MY_URL>/privkey.pem',
-        # )
+        ssl_context=('fullchain.pem', 'privkey.pem')
     )
     #socketio.run(app, host='0.0.0.0', port=80)
