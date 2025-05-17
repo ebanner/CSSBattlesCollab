@@ -8,27 +8,18 @@ https://github.com/ebanner/CSSBattlesCollab/assets/2068912/704ed6fd-3103-4207-8d
 
 ## How to run
 
-### Server
+### Running
 
-Start the websockets server
+1. Start up ECS service (websockets server)
+2. Get IP address from ECS service
+3. Point namecheap domain to the IP address (`@` for Host)
+4. Do `dig collaborative-cssbattle.com +short` until the DNS updates
+...
+5. Shut down ECS instance
 
-```
-# python3 websocket_server.py 
- * Serving Flask app 'websocket_server'
- * Debug mode: off
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on all addresses (0.0.0.0)
- * Running on https://127.0.0.1:443
-Press CTRL+C to quit
-```
+Every 90 days:
 
-### Clients
-
-1. Go to a [cssbattle.dev](https://cssbattle.dev) problem
-
-2. Open up the Chrome DevTools Console
-
-3. Paste in the secret gist (get it from Eddie)
+Generate a new Let’s Encrypt certificate on a random EC2 instance
    
 ## Media
 
