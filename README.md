@@ -14,7 +14,9 @@ https://github.com/ebanner/CSSBattlesCollab/assets/2068912/704ed6fd-3103-4207-8d
 2. Get IP address from ECS service
 3. Point namecheap domain to the IP address (`@` for Host)
 4. Do `dig collaborative-cssbattle.com +short` until the DNS updates
+
 ...
+
 5. Shut down ECS instance
 
 Every 90 days:
